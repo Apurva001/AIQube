@@ -91,6 +91,11 @@
       width: 220px;
       text-align: center;
       box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.05);
     }
     footer {
       background: #003366;
@@ -108,14 +113,16 @@
   </header>
 
   <div class="tabs">
-    <button class="tablink active" onclick="openTab(event, 'ui')">UI</button>
+    <button class="tablink active" onclick="openTab(event, 'home')">Home</button>
+    <button class="tablink" onclick="openTab(event, 'ui')">UI</button>
     <button class="tablink" onclick="openTab(event, 'api')">API</button>
     <button class="tablink" onclick="openTab(event, 'mobile')">Mobile</button>
     <button class="tablink" onclick="openTab(event, 'performance')">Performance</button>
   </div>
 
   <main>
-    <section id="home">
+    <!-- Home Section -->
+    <section id="home" class="tab-content active">
       <div class="project">
         <h2>About Us</h2>
         <p>AIQube is a quality engineering company with over a decade of industry experience. We specialize in end-to-end automation services covering web, mobile, API, performance, and accessibility testing.</p>
@@ -140,7 +147,8 @@
       </div>
     </section>
 
-    <section id="ui" class="tab-content active">
+    <!-- UI Tab Section -->
+    <section id="ui" class="tab-content">
       <h2>UI Automation</h2>
       <div class="hamburger-menu">
         <ul>
@@ -152,6 +160,7 @@
       </div>
     </section>
 
+    <!-- API Tab Section -->
     <section id="api" class="tab-content">
       <h2>API Automation</h2>
       <div class="hamburger-menu">
@@ -163,6 +172,7 @@
       </div>
     </section>
 
+    <!-- Mobile Tab Section -->
     <section id="mobile" class="tab-content">
       <h2>Mobile Automation</h2>
       <div class="hamburger-menu">
@@ -173,6 +183,7 @@
       </div>
     </section>
 
+    <!-- Performance Tab Section -->
     <section id="performance" class="tab-content">
       <h2>Performance Testing</h2>
       <div class="hamburger-menu">
