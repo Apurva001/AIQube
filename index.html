@@ -27,7 +27,7 @@
     h1, h2 {
       color: #003366;
     }
-    .project {
+    .project, .framework {
       background: #fff;
       margin: 20px 0;
       padding: 20px;
@@ -43,6 +43,21 @@
     ul {
       list-style-type: disc;
       margin-left: 20px;
+    }
+    a {
+      color: #003366;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    pre {
+      background: #eef;
+      padding: 10px;
+      overflow-x: auto;
+    }
+    code {
+      font-family: monospace;
     }
   </style>
 </head>
@@ -95,6 +110,58 @@
         <li>Led testing strategy and collaborated with cross-functional teams.</li>
         <li>Performed code reviews and streamlined defect detection processes.</li>
       </ul>
+    </div>
+    <div class="project">
+      <h3>Banking App Automation (2021–2022)</h3>
+      <ul>
+        <li>Automated UI tests for online banking portal using Selenium + TestNG.</li>
+        <li>Developed reusable test utilities and maintained data-driven frameworks.</li>
+        <li>Integrated with Jenkins for nightly test runs and reporting.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Automation Framework</h2>
+    <div class="framework">
+      <h3>Framework Overview</h3>
+      <ul>
+        <li>Supports UI and API Testing using Playwright (TypeScript), Cypress (JavaScript), and RestAssured (Java)</li>
+        <li>Built using Page Object Model with Mocha + Chai and BDD with Cucumber</li>
+        <li>Integrates CI/CD with Jenkins, Git, and GitHub Actions</li>
+        <li>Custom utilities for assertions, data-driven testing, and environment management</li>
+        <li>Scalable for multi-platform execution and parallel runs</li>
+        <li>Test Reports: HTML + Allure reporting</li>
+      </ul>
+
+      <h3>Code Snippet (Playwright Page Object)</h3>
+      <pre><code>export class LoginPage {
+  constructor(page) {
+    this.page = page;
+    this.usernameInput = page.locator('#username');
+    this.passwordInput = page.locator('#password');
+    this.loginButton = page.locator('#login');
+  }
+
+  async login(username, password) {
+    await this.usernameInput.fill(username);
+    await this.passwordInput.fill(password);
+    await this.loginButton.click();
+  }
+}</code></pre>
+
+      <h3>Code & Documentation</h3>
+      <p>GitHub Repository: <a href="https://github.com/yourusername/qa-framework" target="_blank">qa-framework</a></p>
+      <p>README Guide: <a href="https://github.com/yourusername/qa-framework/blob/main/README.md" target="_blank">Framework README</a></p>
+
+      <h3>Architecture Diagram</h3>
+      <img src="architecture-diagram.png" alt="Framework Architecture" width="100%" />
+
+      <h3>Demo Video</h3>
+      <video controls width="100%">
+        <source src="demo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
     </div>
   </section>
 
