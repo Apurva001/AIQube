@@ -16,24 +16,33 @@
     header {
       background: #003366;
       color: #fff;
-      padding: 20px;
+      padding: 40px 20px;
       text-align: center;
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
     header img {
-      max-height: 60px;
+      max-height: 120px;
       display: block;
       margin: 0 auto 10px;
+    }
+    header h1 {
+      margin: 10px 0;
+      font-size: 40px;
+    }
+    header p {
+      font-size: 18px;
     }
     .tabs {
       display: flex;
       justify-content: center;
       background: #002244;
       position: sticky;
-      top: 100px;
+      top: 140px;
       z-index: 999;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
     .tabs button {
       background: transparent;
@@ -41,7 +50,7 @@
       border: none;
       padding: 14px 20px;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 18px;
     }
     .tabs button:hover, .tabs button.active {
       background-color: #004488;
@@ -106,7 +115,7 @@
   </style>
 </head>
 <body>
-  <header>
+  <header id="home-header">
     <img src="aiqubelogo.png" alt="AIQube Logo">
     <h1>AIQube</h1>
     <p>Enterprise-grade Quality Engineering Services | Web, Mobile, API, Performance, Accessibility</p>
@@ -210,6 +219,13 @@
 
       document.getElementById(tabName).classList.add('active');
       evt.currentTarget.classList.add('active');
+      
+      // Hide header for non-home tabs
+      if (tabName !== 'home') {
+        document.getElementById('home-header').style.display = 'none';
+      } else {
+        document.getElementById('home-header').style.display = 'block';
+      }
     }
   </script>
 </body>
