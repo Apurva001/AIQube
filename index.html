@@ -27,6 +27,29 @@
     h1, h2 {
       color: #003366;
     }
+    .cards-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      width: 23%;
+      margin-bottom: 20px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .card:hover {
+      background: #f1f1f1;
+    }
+    .card img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
     .tabs {
       display: flex;
       justify-content: center;
@@ -56,20 +79,36 @@
       text-align: center;
       padding: 20px;
     }
-    .framework-section {
-      background: #fff;
-      padding: 20px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
+    .hamburger-menu {
+      display: none;
+      flex-direction: column;
+      background-color: #003366;
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 10px;
+      width: 200px;
+      z-index: 1000;
     }
-    .framework-section h3 {
-      color: #003366;
+    .hamburger-menu a {
+      color: white;
+      padding: 10px;
+      text-decoration: none;
     }
-    iframe {
-      width: 100%;
-      height: 315px;
-      border: none;
+    .hamburger-menu a:hover {
+      background-color: #0055aa;
+    }
+    .hamburger-menu-button {
+      display: block;
+      background-color: #003366;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 5px;
       margin-top: 10px;
+    }
+    .hamburger-menu-button:hover {
+      background-color: #0055aa;
     }
     .ai-highlight {
       background: #e8f4fc;
@@ -81,25 +120,49 @@
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="AIQube Logo" style="max-width: 150px;" />
+    <img src="aiqubelogo.png" alt="AIQube Logo" style="max-width: 150px;" />
     <h1>Welcome to AIQube - QA Automation Portfolio</h1>
     <p>Explore my expertise in AI-driven automation across various domains of QA testing.</p>
   </header>
 
   <main>
+    <!-- Project Cards Section -->
+    <div class="cards-container">
+      <div class="card" onclick="window.location='#tab-playwright'">
+        <img src="playwright-logo.png" alt="Playwright Logo" />
+        <h3>Playwright</h3>
+        <p>Web and API testing automation.</p>
+      </div>
+      <div class="card" onclick="window.location='#tab-selenium'">
+        <img src="selenium-logo.png" alt="Selenium Logo" />
+        <h3>Selenium</h3>
+        <p>Widely used for web automation.</p>
+      </div>
+      <div class="card" onclick="window.location='#tab-cypress'">
+        <img src="cypress-logo.png" alt="Cypress Logo" />
+        <h3>Cypress</h3>
+        <p>End-to-end testing framework.</p>
+      </div>
+      <div class="card" onclick="window.location='#tab-katalon'">
+        <img src="katalon-logo.png" alt="Katalon Logo" />
+        <h3>Katalon Studio</h3>
+        <p>Automated testing for web, API, and mobile.</p>
+      </div>
+    </div>
+
     <!-- Horizontal Tabs Navigation -->
     <div class="tabs">
       <div class="tab" id="tab-home">Home</div>
       <div class="tab" id="tab-playwright">Playwright</div>
       <div class="tab" id="tab-selenium">Selenium</div>
       <div class="tab" id="tab-cypress">Cypress</div>
-      <div class="tab" id="tab-katalon">Katalon</div>
+      <div class="tab" id="tab-katalon">Katalon Studio</div>
       <div class="tab" id="tab-mobile">Mobile Testing</div>
       <div class="tab" id="tab-api">API Testing</div>
       <div class="tab" id="tab-performance">Performance Testing</div>
     </div>
 
-    <!-- Home Page Content (Visible by Default) -->
+    <!-- Tab Content: Home -->
     <div class="tab-content active" id="content-home">
       <h2>My Skills</h2>
       <p>With over 12 years of experience, I specialize in a wide range of QA Automation skills:</p>
@@ -112,37 +175,35 @@
       </ul>
     </div>
 
-    <!-- Playwright Framework Content -->
+    <!-- Tab Content: Playwright -->
     <div class="tab-content" id="content-playwright">
-      <div class="framework-section">
-        <h3>Playwright</h3>
-        <p>Web, API, Performance testing using JavaScript, TypeScript, Python.</p>
-        <p class="ai-highlight">Integrated with GitHub Copilot for faster script authoring, auto-healing locators, and AI-driven test suggestions using Microsoft Playwright Trace Viewer.</p>
-        <iframe src="https://www.youtube.com/embed/sample_video" frameborder="0" allowfullscreen></iframe>
+      <div class="hamburger-menu-button" onclick="toggleHamburgerMenu('playwright')">Menu</div>
+      <div class="hamburger-menu" id="playwright-menu">
+        <a href="#playwright-web">Web Testing</a>
+        <a href="#playwright-api">API Testing</a>
+        <a href="#playwright-performance">Performance Testing</a>
       </div>
+      <h2>Playwright</h2>
+      <p>Web, API, Performance testing using JavaScript, TypeScript, Python.</p>
+      <iframe src="https://www.youtube.com/embed/sample_video" frameborder="0" allowfullscreen></iframe>
+      <img src="report-placeholder.png" alt="Test Report Placeholder" />
     </div>
 
-    <!-- Selenium Framework Content -->
+    <!-- Tab Content: Selenium -->
     <div class="tab-content" id="content-selenium">
-      <div class="framework-section">
-        <h3>Selenium</h3>
-        <p>Framework for web application automation using Java, TestNG, and Maven.</p>
-        <p class="ai-highlight">Smart element locators using AI plugins in Selenium IDE and SeleniumBase for flaky test detection and healing.</p>
-        <iframe src="https://www.youtube.com/embed/sample_video" frameborder="0" allowfullscreen></iframe>
+      <div class="hamburger-menu-button" onclick="toggleHamburgerMenu('selenium')">Menu</div>
+      <div class="hamburger-menu" id="selenium-menu">
+        <a href="#selenium-web">Web Testing</a>
+        <a href="#selenium-api">API Testing</a>
+        <a href="#selenium-performance">Performance Testing</a>
       </div>
+      <h2>Selenium</h2>
+      <p>Web testing using Java, TestNG, and Maven.</p>
+      <iframe src="https://www.youtube.com/embed/sample_video" frameborder="0" allowfullscreen></iframe>
+      <img src="report-placeholder.png" alt="Test Report Placeholder" />
     </div>
 
-    <!-- Cypress Framework Content -->
-    <div class="tab-content" id="content-cypress">
-      <div class="framework-section">
-        <h3>Cypress</h3>
-        <p>Web and API testing using JavaScript, Mocha, and Chai.</p>
-        <p class="ai-highlight">Integrated with tools like Testim and Mabl for AI-powered test creation and maintenance.</p>
-        <iframe src="https://www.youtube.com/embed/sample_video" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-
-    <!-- Add More Framework Sections Here -->
+    <!-- Additional Content for Cypress, Katalon, and Others -->
 
   </main>
 
@@ -165,6 +226,10 @@
         document.getElementById(contentId).classList.add('active');
       });
     });
-  </script>
-</body>
-</html>
+
+    // Hamburger menu toggle
+    function toggleHamburgerMenu(tab) {
+      const menu = document.getElementById(`${tab}-menu`);
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    }
+  </
