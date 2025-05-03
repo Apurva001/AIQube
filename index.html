@@ -13,26 +13,36 @@
       background: #f5f7fa;
       color: #333;
       display: flex;
+      flex-direction: column;
     }
     header {
       background: #003366;
       color: #fff;
-      padding: 20px;
+      padding: 20px 0;
       text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    header img {
+      width: 120px;
+      margin-bottom: 10px;
+    }
+    header h1 {
+      font-size: 2.5rem;
     }
     nav {
-      width: 250px;
       background: #002244;
       color: white;
       height: 100vh;
       padding: 20px;
       position: fixed;
+      top: 0;
+      left: 0;
+      width: 250px;
       overflow-y: auto;
-    }
-    nav h2 {
-      color: #fff;
-      font-size: 18px;
-      margin-top: 20px;
     }
     nav ul {
       padding: 0;
@@ -51,71 +61,58 @@
     }
     main {
       margin-left: 270px;
-      padding: 40px;
+      padding: 120px 40px 40px;
       flex: 1;
     }
-    h1, h2 {
-      color: #003366;
+    .hero {
+      background: #003366;
+      color: white;
+      text-align: center;
+      padding: 100px 0;
     }
-    .project, .framework {
+    .hero h2 {
+      font-size: 2.5rem;
+    }
+    .features {
+      display: flex;
+      justify-content: space-around;
+      padding: 40px 0;
+      background: #eef;
+    }
+    .feature {
       background: #fff;
-      margin: 20px 0;
       padding: 20px;
-      border-left: 4px solid #003366;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 30%;
+    }
+    .feature h3 {
+      font-size: 1.5rem;
+      color: #003366;
     }
     footer {
       background: #003366;
       color: #fff;
       text-align: center;
       padding: 20px;
-      position: relative;
     }
-    ul.disc {
-      list-style-type: disc;
-      margin-left: 20px;
+    footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
     }
-    pre {
-      background: #eef;
-      padding: 10px;
-      overflow-x: auto;
-    }
-    code {
-      font-family: monospace;
-    }
-    section {
-      max-width: 1000px;
-      margin: auto;
-    }
-    img.framework {
-      max-width: 100%;
-      margin-top: 10px;
-      border: 1px solid #ccc;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-    }
-    iframe {
-      width: 100%;
-      height: 315px;
-      border: none;
-      margin-top: 10px;
-    }
-    .ai-highlight {
-      background: #e8f4fc;
-      border-left: 4px solid #0078d7;
-      padding: 10px;
-      margin-top: 10px;
-    }
-    details {
-      margin-top: 10px;
-    }
-    summary {
-      font-weight: bold;
-      cursor: pointer;
-      color: #003366;
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+  <header>
+    <img src="https://yourimageurl.com/aiqube-logo.png" alt="AIQube Logo" />
+    <h1>AIQube</h1>
+    <p>Leading QA Automation with AI-powered Tools and Frameworks</p>
+  </header>
+
   <nav>
     <h2>Automation Categories</h2>
     <ul>
@@ -130,56 +127,49 @@
   </nav>
 
   <main>
-    <header>
-      <h1>AIQube</h1>
-      <p>QA Automation Lead | 12+ Years Experience | Web, Mobile, API, Performance, Accessibility Testing</p>
-    </header>
-
-    <section>
-      <h2>Skillset & Expertise</h2>
-      <ul class="disc">
-        <li>Automation Tools: Selenium WebDriver, Katalon-Studio, Cypress, Playwright, Appium, JMeter</li>
-        <li>Automation Frameworks: BDD, TestNG, JUnit, Rest Assured, Cucumber, Chai, Mocha</li>
-        <li>Programming Languages: Java, JavaScript, TypeScript, SQL</li>
-        <li>Test Management: Jenkins, Git, GitHub, JIRA, Zephyr, HP ALM, Rally</li>
-      </ul>
-      <h2>Featured Projects</h2>
-      <div class="project">
-        <h3>Emergency Services</h3>
-        <p><strong>Project Role:</strong> QA Automation Lead</p>
-        <p><strong>Technologies Used:</strong> Playwright, Cypress, Jenkins, Git, RestAssured, JavaScript</p>
-        <p>Led a team in automating test scripts for web and API applications, ensuring scalability and reliability of the system.</p>
-      </div>
-      <div class="project">
-        <h3>Banking Domain Testing</h3>
-        <p><strong>Project Role:</strong> Senior QA Automation Engineer</p>
-        <p><strong>Technologies Used:</strong> Selenium WebDriver, Appium, Cucumber</p>
-        <p>Implemented automated tests for mobile and web applications, ensuring smooth integration with legacy banking systems.</p>
-      </div>
-
-      <div id="playwright" class="framework">
-        <h2>Playwright</h2>
-        <details>
-          <summary>Overview</summary>
-          <p>Web, API, Performance testing using JavaScript, TypeScript, Python.</p>
-        </details>
-        <details>
-          <summary>AI Integrations</summary>
-          <p class="ai-highlight">Integrated with GitHub Copilot for faster script authoring, auto-healing locators, and AI-driven test suggestions.</p>
-        </details>
-        <details>
-          <summary>Video Demo</summary>
-          <iframe src="https://www.youtube.com/embed/your_video_link_here" title="Playwright Demo"></iframe>
-        </details>
-      </div>
-
-      <!-- Similar sections for Selenium, Cypress, Katalon, Mobile Testing, API Testing -->
-
+    <!-- Hero Section -->
+    <section class="hero">
+      <h2>Welcome to AIQube</h2>
+      <p>Revolutionizing QA Automation with the Power of AI</p>
+      <a href="#get-started" style="color: #fff; background-color: #0078d7; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 5px;">Get Started</a>
     </section>
 
-    <footer>
-      <p>&copy; 2025 AIQube. All rights reserved.</p>
-    </footer>
+    <!-- Features Section -->
+    <section class="features">
+      <div class="feature" id="playwright">
+        <h3>Playwright</h3>
+        <p>Automate Web, API, and Performance testing with JavaScript, TypeScript, and Python.</p>
+      </div>
+      <div class="feature" id="selenium">
+        <h3>Selenium</h3>
+        <p>Open-source framework for web application automation using Java, TestNG, and Maven.</p>
+      </div>
+      <div class="feature" id="cypress">
+        <h3>Cypress</h3>
+        <p>Modern web testing tool with fast execution, and easy debugging.</p>
+      </div>
+    </section>
+
+    <!-- Add other sections for Katalon, Mobile Testing, API Testing, and Performance -->
+    <section class="features">
+      <div class="feature" id="katalon">
+        <h3>Katalon Studio</h3>
+        <p>Integrated solution for Web, API, Mobile, and Desktop testing.</p>
+      </div>
+      <div class="feature" id="mobile">
+        <h3>Mobile Testing</h3>
+        <p>Automate mobile apps with Appium and other popular tools.</p>
+      </div>
+      <div class="feature" id="api">
+        <h3>API Testing</h3>
+        <p>Automate and validate APIs using Postman, RestAssured, and more.</p>
+      </div>
+    </section>
+
   </main>
+
+  <footer>
+    <p>&copy; 2025 AIQube | <a href="#">Contact</a> | <a href="#">Privacy Policy</a></p>
+  </footer>
 </body>
 </html>
