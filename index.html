@@ -13,102 +13,99 @@
       background: #f5f7fa;
       color: #333;
       display: flex;
-      flex-direction: column;
     }
     header {
       background: #003366;
       color: #fff;
       padding: 20px;
       text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    header img {
+      max-height: 60px;
+      display: block;
+      margin: 0 auto 10px;
+    }
+    nav {
+      width: 250px;
+      background: #002244;
+      color: white;
+      height: 100vh;
+      padding: 20px;
+      position: fixed;
+      overflow-y: auto;
+    }
+    nav h2 {
+      color: #fff;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+    nav ul {
+      padding: 0;
+      list-style-type: none;
+    }
+    nav li {
+      margin: 10px 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
     }
     main {
+      margin-left: 270px;
       padding: 40px;
+      flex: 1;
     }
     h1, h2 {
       color: #003366;
     }
-    .cards-container {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      margin: 20px 0;
-    }
-    .card {
+    .project, .framework {
       background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      width: 23%;
-      margin-bottom: 20px;
-      padding: 20px;
-      text-align: center;
-      cursor: pointer;
-    }
-    .card:hover {
-      background: #f1f1f1;
-    }
-    .card img {
-      max-width: 100%;
-      border-radius: 5px;
-    }
-    .tabs {
-      display: flex;
-      justify-content: center;
       margin: 20px 0;
-    }
-    .tab {
-      background: #003366;
-      color: white;
-      padding: 10px 20px;
-      margin: 0 10px;
-      cursor: pointer;
-      border-radius: 5px 5px 0 0;
-    }
-    .tab:hover {
-      background: #0055aa;
-    }
-    .tab-content {
-      display: none;
-      margin-top: 20px;
-    }
-    .tab-content.active {
-      display: block;
+      padding: 20px;
+      border-left: 4px solid #003366;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     footer {
       background: #003366;
       color: #fff;
       text-align: center;
       padding: 20px;
+      position: relative;
     }
-    .hamburger-menu {
-      display: none;
-      flex-direction: column;
-      background-color: #003366;
-      position: absolute;
-      top: 0;
-      right: 0;
+    ul.disc {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+    pre {
+      background: #eef;
       padding: 10px;
-      width: 200px;
-      z-index: 1000;
+      overflow-x: auto;
     }
-    .hamburger-menu a {
-      color: white;
-      padding: 10px;
-      text-decoration: none;
+    code {
+      font-family: monospace;
     }
-    .hamburger-menu a:hover {
-      background-color: #0055aa;
+    section {
+      max-width: 1000px;
+      margin: auto;
     }
-    .hamburger-menu-button {
-      display: block;
-      background-color: #003366;
-      color: white;
-      padding: 10px;
-      cursor: pointer;
-      border-radius: 5px;
+    img.framework {
+      max-width: 100%;
       margin-top: 10px;
+      border: 1px solid #ccc;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
     }
-    .hamburger-menu-button:hover {
-      background-color: #0055aa;
+    iframe {
+      width: 100%;
+      height: 315px;
+      border: none;
+      margin-top: 10px;
     }
     .ai-highlight {
       background: #e8f4fc;
@@ -116,120 +113,73 @@
       padding: 10px;
       margin-top: 10px;
     }
+    details {
+      margin-top: 10px;
+    }
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+      color: #003366;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <img src="aiqubelogo.png" alt="AIQube Logo" style="max-width: 150px;" />
-    <h1>Welcome to AIQube - QA Automation Portfolio</h1>
-    <p>Explore my expertise in AI-driven automation across various domains of QA testing.</p>
-  </header>
+  <nav>
+    <h2>Automation Categories</h2>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#playwright">Playwright</a></li>
+      <li><a href="#selenium">Selenium</a></li>
+      <li><a href="#cypress">Cypress</a></li>
+      <li><a href="#katalon">Katalon Studio</a></li>
+      <li><a href="#mobile">Mobile Testing</a></li>
+      <li><a href="#api">API Testing</a></li>
+      <li><a href="#performance">Performance Testing</a></li>
+    </ul>
+  </nav>
 
   <main>
-    <!-- Project Cards Section -->
-    <div class="cards-container">
-      <div class="card" onclick="window.location='#tab-playwright'">
-        <img src="playwright-logo.png" alt="Playwright Logo" />
-        <h3>Playwright</h3>
-        <p>Web and API testing automation.</p>
-      </div>
-      <div class="card" onclick="window.location='#tab-selenium'">
-        <img src="selenium-logo.png" alt="Selenium Logo" />
-        <h3>Selenium</h3>
-        <p>Widely used for web automation.</p>
-      </div>
-      <div class="card" onclick="window.location='#tab-cypress'">
-        <img src="cypress-logo.png" alt="Cypress Logo" />
-        <h3>Cypress</h3>
-        <p>End-to-end testing framework.</p>
-      </div>
-      <div class="card" onclick="window.location='#tab-katalon'">
-        <img src="katalon-logo.png" alt="Katalon Logo" />
-        <h3>Katalon Studio</h3>
-        <p>Automated testing for web, API, and mobile.</p>
-      </div>
-    </div>
+    <header>
+      <img src="aiqubelogo.png" alt="AIQube Logo">
+      <h1>AIQube</h1>
+      <p>QA Automation Lead | 12+ Years Experience | Web, Mobile, API, Performance, Accessibility Testing</p>
+    </header>
 
-    <!-- Horizontal Tabs Navigation -->
-    <div class="tabs">
-      <div class="tab" id="tab-home">Home</div>
-      <div class="tab" id="tab-playwright">Playwright</div>
-      <div class="tab" id="tab-selenium">Selenium</div>
-      <div class="tab" id="tab-cypress">Cypress</div>
-      <div class="tab" id="tab-katalon">Katalon Studio</div>
-      <div class="tab" id="tab-mobile">Mobile Testing</div>
-      <div class="tab" id="tab-api">API Testing</div>
-      <div class="tab" id="tab-performance">Performance Testing</div>
-    </div>
-
-    <!-- Tab Content: Home -->
-    <div class="tab-content active" id="content-home">
-      <h2>My Skills</h2>
-      <p>With over 12 years of experience, I specialize in a wide range of QA Automation skills:</p>
-      <ul>
-        <li>Web, Mobile, API, Performance Testing</li>
-        <li>Automation tools: Playwright, Selenium, Cypress, Katalon Studio, Appium, JMeter</li>
-        <li>Programming languages: Java, JavaScript, TypeScript, Python, SQL</li>
-        <li>CI/CD with Jenkins, Git, GitHub, Docker</li>
-        <li>Test management: JIRA, qTest, Zephyr, Xray</li>
-      </ul>
-    </div>
-
-    <!-- Tab Content: Playwright -->
-    <div class="tab-content" id="content-playwright">
-      <div class="hamburger-menu-button" onclick="toggleHamburgerMenu('playwright')">Menu</div>
-      <div class="hamburger-menu" id="playwright-menu">
-        <a href="#playwright-web">Web Testing</a>
-        <a href="#playwright-api">API Testing</a>
-        <a href="#playwright-performance">Performance Testing</a>
+    <section id="about">
+      <div class="project">
+        <h2>About Me</h2>
+        <p>Objective-driven QA Automation Lead with 12+ years of experience in Web, Mobile, and API testing. Extensive experience in designing and implementing automation frameworks, and leading cross-functional agile teams across banking, telecom, and emergency alert systems.</p>
       </div>
-      <h2>Playwright</h2>
-      <p>Web, API, Performance testing using JavaScript, TypeScript, Python.</p>
-      <iframe src="https://www.youtube.com/embed/sample_video" frameborder="0" allowfullscreen></iframe>
-      <img src="report-placeholder.png" alt="Test Report Placeholder" />
-    </div>
+    </section>
 
-    <!-- Tab Content: Selenium -->
-    <div class="tab-content" id="content-selenium">
-      <div class="hamburger-menu-button" onclick="toggleHamburgerMenu('selenium')">Menu</div>
-      <div class="hamburger-menu" id="selenium-menu">
-        <a href="#selenium-web">Web Testing</a>
-        <a href="#selenium-api">API Testing</a>
-        <a href="#selenium-performance">Performance Testing</a>
+    <section id="projects">
+      <div class="project">
+        <h2>Project: Emergency Services (2020 - Present)</h2>
+        <ul class="disc">
+          <li>Led a QA Automation team implementing Playwright and Cypress for test automation.</li>
+          <li>Utilized Jenkins, Git, and REST Assured in CI/CD pipelines.</li>
+          <li>Designed Page Object Models and implemented BDD frameworks using Mocha and Chai.</li>
+        </ul>
       </div>
-      <h2>Selenium</h2>
-      <p>Web testing using Java, TestNG, and Maven.</p>
-      <iframe src="https://www.youtube.com/embed/sample_video" frameborder="0" allowfullscreen></iframe>
-      <img src="report-placeholder.png" alt="Test Report Placeholder" />
-    </div>
+      <div class="project">
+        <h2>Project: Emergency Services (2018 - 2020)</h2>
+        <ul class="disc">
+          <li>Developed reusable automation framework and participated in agile ceremonies.</li>
+          <li>Guided peer reviews and collaborated with stakeholders for test strategy.</li>
+          <li>Trained team members and improved efficiency across sprints.</li>
+        </ul>
+      </div>
+    </section>
 
-    <!-- Additional Content for Cypress, Katalon, and Others -->
+    <section>
+      <!-- Framework Sections Start Here -->
+      <!-- (Existing framework sections: playwright, selenium, etc.) -->
+    </section>
 
+    <footer>
+      <p>&copy; 2025 AIQube. All rights reserved.</p>
+    </footer>
   </main>
-
-  <footer>
-    <p>&copy; 2025 AIQube. All rights reserved.</p>
-  </footer>
-
-  <script>
-    // Tab functionality to switch between tabs
-    const tabs = document.querySelectorAll('.tab');
-    const tabContents = document.querySelectorAll('.tab-content');
-    
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        tabContents.forEach(content => content.classList.remove('active'));
-
-        tab.classList.add('active');
-        const contentId = `content-${tab.id.replace('tab-', '')}`;
-        document.getElementById(contentId).classList.add('active');
-      });
-    });
-
-    // Hamburger menu toggle
-    function toggleHamburgerMenu(tab) {
-      const menu = document.getElementById(`${tab}-menu`);
-      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-    }
-  </
+</body>
+</html>
