@@ -12,7 +12,6 @@
       padding: 0;
       background: #f5f7fa;
       color: #333;
-      display: flex;
     }
     header {
       background: #003366;
@@ -21,46 +20,53 @@
       text-align: center;
       position: sticky;
       top: 0;
-      z-index: 999;
+      z-index: 1000;
     }
     header img {
       max-height: 60px;
       display: block;
       margin: 0 auto 10px;
     }
-    nav {
-      width: 250px;
+    .tabs {
+      display: flex;
+      justify-content: center;
       background: #002244;
-      color: white;
-      height: 100vh;
-      padding: 20px;
-      position: fixed;
-      overflow-y: auto;
+      position: sticky;
+      top: 100px;
+      z-index: 999;
     }
-    nav h2 {
+    .tabs button {
+      background: transparent;
       color: #fff;
-      font-size: 18px;
-      margin-top: 20px;
+      border: none;
+      padding: 14px 20px;
+      cursor: pointer;
+      font-size: 16px;
     }
-    nav ul {
-      padding: 0;
-      list-style-type: none;
+    .tabs button:hover, .tabs button.active {
+      background-color: #004488;
     }
-    nav li {
-      margin: 10px 0;
+    .tab-content {
+      padding: 20px;
+      display: none;
     }
-    nav a {
-      color: white;
+    .tab-content.active {
+      display: block;
+    }
+    .hamburger-menu ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .hamburger-menu li {
+      margin: 8px 0;
+    }
+    .hamburger-menu a {
       text-decoration: none;
+      color: #003366;
       font-weight: bold;
     }
-    nav a:hover {
-      text-decoration: underline;
-    }
     main {
-      margin-left: 270px;
-      padding: 40px;
-      flex: 1;
+      padding: 40px 20px;
     }
     h1, h2 {
       color: #003366;
@@ -72,128 +78,128 @@
       border-left: 4px solid #003366;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .card {
+      background: white;
+      border: 1px solid #ccc;
+      padding: 20px;
+      width: 220px;
+      text-align: center;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+    }
     footer {
       background: #003366;
       color: #fff;
       text-align: center;
       padding: 20px;
-      position: relative;
-    }
-    ul.disc {
-      list-style-type: disc;
-      margin-left: 20px;
-    }
-    pre {
-      background: #eef;
-      padding: 10px;
-      overflow-x: auto;
-    }
-    code {
-      font-family: monospace;
-    }
-    section {
-      max-width: 1000px;
-      margin: auto;
-    }
-    img.framework {
-      max-width: 100%;
-      margin-top: 10px;
-      border: 1px solid #ccc;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-    }
-    iframe {
-      width: 100%;
-      height: 315px;
-      border: none;
-      margin-top: 10px;
-    }
-    .ai-highlight {
-      background: #e8f4fc;
-      border-left: 4px solid #0078d7;
-      padding: 10px;
-      margin-top: 10px;
-    }
-    details {
-      margin-top: 10px;
-    }
-    summary {
-      font-weight: bold;
-      cursor: pointer;
-      color: #003366;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <h2>Automation Categories</h2>
-    <ul>
-      <li><a href="#about">About Us</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#playwright">Playwright</a></li>
-      <ul>
-        <li><a href="#playwright-web">Web Automation</a></li>
-        <li><a href="#playwright-api">API Testing</a></li>
-        <li><a href="#playwright-performance">Performance</a></li>
-        <li><a href="#playwright-ai">AI Integration</a></li>
-      </ul>
-      <li><a href="#selenium">Selenium</a></li>
-      <ul>
-        <li><a href="#selenium-web">Web Automation</a></li>
-        <li><a href="#selenium-ai">AI Integration</a></li>
-      </ul>
-      <li><a href="#cypress">Cypress</a></li>
-      <ul>
-        <li><a href="#cypress-web">Web Automation</a></li>
-        <li><a href="#cypress-api">API Testing</a></li>
-        <li><a href="#cypress-ai">AI Integration</a></li>
-      </ul>
-      <li><a href="#katalon">Katalon Studio</a></li>
-      <li><a href="#mobile">Mobile Testing</a></li>
-      <li><a href="#api">API Testing</a></li>
-      <li><a href="#performance">Performance Testing</a></li>
-    </ul>
-  </nav>
+  <header>
+    <img src="aiqubelogo.png" alt="AIQube Logo">
+    <h1>AIQube</h1>
+    <p>Enterprise-grade Quality Engineering Services | Web, Mobile, API, Performance, Accessibility</p>
+  </header>
+
+  <div class="tabs">
+    <button class="tablink active" onclick="openTab(event, 'ui')">UI</button>
+    <button class="tablink" onclick="openTab(event, 'api')">API</button>
+    <button class="tablink" onclick="openTab(event, 'mobile')">Mobile</button>
+    <button class="tablink" onclick="openTab(event, 'performance')">Performance</button>
+  </div>
 
   <main>
-    <header>
-      <img src="aiqubelogo.png" alt="AIQube Logo">
-      <h1>AIQube</h1>
-      <p>Enterprise-grade Quality Engineering Services | Web, Mobile, API, Performance, Accessibility</p>
-    </header>
-
-    <section id="about">
+    <section id="home">
       <div class="project">
         <h2>About Us</h2>
-        <p>AIQube is a quality engineering company with over a decade of industry experience. We specialize in end-to-end automation services covering web, mobile, API, performance, and accessibility testing. Our team has led major automation initiatives across the banking, telecom, and emergency response domains.</p>
+        <p>AIQube is a quality engineering company with over a decade of industry experience. We specialize in end-to-end automation services covering web, mobile, API, performance, and accessibility testing.</p>
       </div>
-    </section>
-
-    <section id="projects">
-      <div class="project">
-        <h2>Project: Emergency Services (2020 - Present)</h2>
-        <ul class="disc">
-          <li>Led a QA Automation team implementing Playwright and Cypress for test automation.</li>
-          <li>Utilized Jenkins, Git, and REST Assured in CI/CD pipelines.</li>
-          <li>Designed Page Object Models and implemented BDD frameworks using Mocha and Chai.</li>
-        </ul>
+      <div class="cards">
+        <div class="card">Selenium</div>
+        <div class="card">Playwright</div>
+        <div class="card">Cypress</div>
+        <div class="card">Katalon</div>
+        <div class="card">Appium</div>
+        <div class="card">Postman</div>
+        <div class="card">JMeter</div>
       </div>
       <div class="project">
-        <h2>Project: Emergency Services (2018 - 2020)</h2>
-        <ul class="disc">
-          <li>Developed reusable automation framework and participated in agile ceremonies.</li>
-          <li>Guided peer reviews and collaborated with stakeholders for test strategy.</li>
-          <li>Trained team members and improved efficiency across sprints.</li>
+        <h2>Projects</h2>
+        <p>Highlights from our leading QA initiatives in various domains:</p>
+        <ul>
+          <li>Automation for Emergency Response Platform</li>
+          <li>Banking & Financial Service QA Transformation</li>
+          <li>End-to-end Mobile App Testing Frameworks</li>
         </ul>
       </div>
     </section>
 
-    <section>
-      <!-- Placeholder for framework sections (to be expanded) -->
+    <section id="ui" class="tab-content active">
+      <h2>UI Automation</h2>
+      <div class="hamburger-menu">
+        <ul>
+          <li><a href="#">Selenium</a></li>
+          <li><a href="#">Playwright</a></li>
+          <li><a href="#">Cypress</a></li>
+          <li><a href="#">Katalon Studio</a></li>
+        </ul>
+      </div>
     </section>
 
-    <footer>
-      <p>&copy; 2025 AIQube. All rights reserved.</p>
-    </footer>
+    <section id="api" class="tab-content">
+      <h2>API Automation</h2>
+      <div class="hamburger-menu">
+        <ul>
+          <li><a href="#">Postman</a></li>
+          <li><a href="#">Rest Assured</a></li>
+          <li><a href="#">SoapUI</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="mobile" class="tab-content">
+      <h2>Mobile Automation</h2>
+      <div class="hamburger-menu">
+        <ul>
+          <li><a href="#">Appium</a></li>
+          <li><a href="#">Detox</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="performance" class="tab-content">
+      <h2>Performance Testing</h2>
+      <div class="hamburger-menu">
+        <ul>
+          <li><a href="#">JMeter</a></li>
+          <li><a href="#">Gatling</a></li>
+          <li><a href="#">Locust</a></li>
+        </ul>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <p>&copy; 2025 AIQube. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function openTab(evt, tabName) {
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      const tablinks = document.querySelectorAll('.tablink');
+      tablinks.forEach(link => link.classList.remove('active'));
+
+      document.getElementById(tabName).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+  </script>
 </body>
 </html>
