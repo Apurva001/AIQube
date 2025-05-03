@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AIQube - QA Automation Company</title>
+  <link rel="icon" href="aiqubelogo.png" type="image/png" />
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -12,6 +13,7 @@
       padding: 0;
       background: #f5f7fa;
       color: #333;
+      display: flex;
     }
     header {
       background: #003366;
@@ -21,86 +23,71 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
     }
-    header h1 {
-      margin: 10px 0;
-      font-size: 40px;
+    header img {
+      max-height: 80px;
+      display: block;
+      margin: 0 auto 10px;
     }
-    header p {
-      font-size: 18px;
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
     }
+    p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+    .slogan {
+      font-size: 1rem;
+      font-weight: lighter;
+      margin-top: 10px;
+      color: #f5a623;
+    }
+
     .tabs {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       background: #002244;
-      position: sticky;
-      top: 0;
+      padding: 10px 0;
+      position: fixed;
+      top: 160px;
+      left: 0;
+      width: 200px;
+      height: 100%;
       z-index: 999;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin: 0;
     }
+
     .tabs button {
       background: transparent;
       color: #fff;
       border: none;
       padding: 14px 20px;
       cursor: pointer;
-      font-size: 18px;
+      font-size: 16px;
+      text-align: left;
     }
+    
     .tabs button:hover, .tabs button.active {
       background-color: #004488;
     }
+
+    .main-content {
+      margin-left: 220px;
+      padding: 20px;
+      width: 100%;
+    }
+
     .tab-content {
       padding: 20px;
       display: none;
     }
+    
     .tab-content.active {
       display: block;
     }
-    .hamburger-menu ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    .hamburger-menu li {
-      margin: 8px 0;
-    }
-    .hamburger-menu a {
-      text-decoration: none;
-      color: #003366;
-      font-weight: bold;
-    }
-    main {
-      padding: 40px 20px;
-    }
-    h1, h2 {
-      color: #003366;
-    }
-    .project, .framework {
-      background: #fff;
-      margin: 20px 0;
-      padding: 20px;
-      border-left: 4px solid #003366;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .card {
-      background: white;
-      border: 1px solid #ccc;
-      padding: 20px;
-      width: 220px;
-      text-align: center;
-      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    .card:hover {
-      transform: scale(1.05);
-    }
+
     footer {
       background: #003366;
       color: #fff;
@@ -110,25 +97,22 @@
   </style>
 </head>
 <body>
-  <!-- Tabs Above Header -->
+
+  <header>
+    <h1>AIQube</h1>
+    <p>AIQube: Future-Proofing Quality Engineering | Unlocking the Power of Automation for Web, Mobile, API, and Performance Testing</p>
+    <p class="slogan">Where Automation Meets Quality</p>
+  </header>
+
   <div class="tabs">
-    <button class="tablink active" onclick="openTab(event, 'home')">
-      <img src="aiqubelogo.png" alt="AIQube Logo" style="max-height: 40px;">
-    </button>
-    <button class="tablink" onclick="openTab(event, 'ui')">UI</button>
+    <button class="tablink active" onclick="openTab(event, 'ui')">UI</button>
     <button class="tablink" onclick="openTab(event, 'api')">API</button>
     <button class="tablink" onclick="openTab(event, 'mobile')">Mobile</button>
     <button class="tablink" onclick="openTab(event, 'performance')">Performance</button>
   </div>
 
-  <header>
-    <h1>AIQube</h1>
-    <p>Enterprise-grade Quality Engineering Services | Web, Mobile, API, Performance, Accessibility</p>
-  </header>
-
-  <main>
-    <!-- Home Section -->
-    <section id="home" class="tab-content active">
+  <div class="main-content">
+    <section id="home">
       <div class="project">
         <h2>About Us</h2>
         <p>AIQube is a quality engineering company with over a decade of industry experience. We specialize in end-to-end automation services covering web, mobile, API, performance, and accessibility testing.</p>
@@ -142,19 +126,9 @@
         <div class="card">Postman</div>
         <div class="card">JMeter</div>
       </div>
-      <div class="project">
-        <h2>Projects</h2>
-        <p>Highlights from our leading QA initiatives in various domains:</p>
-        <ul>
-          <li>Automation for Emergency Response Platform</li>
-          <li>Banking & Financial Service QA Transformation</li>
-          <li>End-to-end Mobile App Testing Frameworks</li>
-        </ul>
-      </div>
     </section>
 
-    <!-- UI Tab Section -->
-    <section id="ui" class="tab-content">
+    <section id="ui" class="tab-content active">
       <h2>UI Automation</h2>
       <div class="hamburger-menu">
         <ul>
@@ -166,7 +140,6 @@
       </div>
     </section>
 
-    <!-- API Tab Section -->
     <section id="api" class="tab-content">
       <h2>API Automation</h2>
       <div class="hamburger-menu">
@@ -178,7 +151,6 @@
       </div>
     </section>
 
-    <!-- Mobile Tab Section -->
     <section id="mobile" class="tab-content">
       <h2>Mobile Automation</h2>
       <div class="hamburger-menu">
@@ -189,7 +161,6 @@
       </div>
     </section>
 
-    <!-- Performance Tab Section -->
     <section id="performance" class="tab-content">
       <h2>Performance Testing</h2>
       <div class="hamburger-menu">
@@ -200,7 +171,7 @@
         </ul>
       </div>
     </section>
-  </main>
+  </div>
 
   <footer>
     <p>&copy; 2025 AIQube. All rights reserved.</p>
@@ -216,14 +187,8 @@
 
       document.getElementById(tabName).classList.add('active');
       evt.currentTarget.classList.add('active');
-      
-      // Hide header for non-home tabs
-      if (tabName !== 'home') {
-        document.querySelector('header').style.display = 'none';
-      } else {
-        document.querySelector('header').style.display = 'block';
-      }
     }
   </script>
+
 </body>
 </html>
