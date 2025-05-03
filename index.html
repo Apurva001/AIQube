@@ -13,6 +13,7 @@
       background: #f5f7fa;
       color: #333;
       display: flex;
+      flex-direction: column;
     }
     header {
       background: #003366;
@@ -20,78 +21,49 @@
       padding: 20px;
       text-align: center;
     }
-    nav {
-      width: 250px;
-      background: #002244;
-      color: white;
-      height: 100vh;
-      padding: 20px;
-      position: fixed;
-      overflow-y: auto;
-    }
-    nav h2 {
-      color: #fff;
-      font-size: 18px;
-      margin-top: 20px;
-    }
-    nav ul {
-      padding: 0;
-      list-style-type: none;
-    }
-    nav li {
-      margin: 10px 0;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
     main {
-      margin-left: 270px;
       padding: 40px;
-      flex: 1;
     }
     h1, h2 {
       color: #003366;
     }
-    .skillset, .projects, .framework {
-      background: #fff;
+    .tabs {
+      display: flex;
+      justify-content: center;
       margin: 20px 0;
-      padding: 20px;
-      border-left: 4px solid #003366;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .tab {
+      background: #003366;
+      color: white;
+      padding: 10px 20px;
+      margin: 0 10px;
+      cursor: pointer;
+      border-radius: 5px 5px 0 0;
+    }
+    .tab:hover {
+      background: #0055aa;
+    }
+    .tab-content {
+      display: none;
+      margin-top: 20px;
+    }
+    .tab-content.active {
+      display: block;
     }
     footer {
       background: #003366;
       color: #fff;
       text-align: center;
       padding: 20px;
-      position: relative;
     }
-    ul.disc {
-      list-style-type: disc;
-      margin-left: 20px;
+    .framework-section {
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
     }
-    pre {
-      background: #eef;
-      padding: 10px;
-      overflow-x: auto;
-    }
-    code {
-      font-family: monospace;
-    }
-    section {
-      max-width: 1000px;
-      margin: auto;
-    }
-    img.framework {
-      max-width: 100%;
-      margin-top: 10px;
-      border: 1px solid #ccc;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    .framework-section h3 {
+      color: #003366;
     }
     iframe {
       width: 100%;
@@ -105,131 +77,94 @@
       padding: 10px;
       margin-top: 10px;
     }
-    details {
-      margin-top: 10px;
-    }
-    summary {
-      font-weight: bold;
-      cursor: pointer;
-      color: #003366;
-    }
   </style>
 </head>
 <body>
-  <nav>
-    <h2>AIQube</h2>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#frameworks">Frameworks</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <header>
+    <img src="logo.png" alt="AIQube Logo" style="max-width: 150px;" />
+    <h1>Welcome to AIQube - QA Automation Portfolio</h1>
+    <p>Explore my expertise in AI-driven automation across various domains of QA testing.</p>
+  </header>
 
   <main>
-    <header>
-      <img src="logo.png" alt="AIQube Logo" style="max-width: 150px;" />
-      <h1>Welcome to AIQube - QA Automation Portfolio</h1>
-      <p>Discover the power of AI-driven automation and explore my skills, projects, and capabilities across various domains of QA testing.</p>
-    </header>
+    <!-- Horizontal Tabs Navigation -->
+    <div class="tabs">
+      <div class="tab" id="tab-home">Home</div>
+      <div class="tab" id="tab-playwright">Playwright</div>
+      <div class="tab" id="tab-selenium">Selenium</div>
+      <div class="tab" id="tab-cypress">Cypress</div>
+      <div class="tab" id="tab-katalon">Katalon</div>
+      <div class="tab" id="tab-mobile">Mobile Testing</div>
+      <div class="tab" id="tab-api">API Testing</div>
+      <div class="tab" id="tab-performance">Performance Testing</div>
+    </div>
 
-    <section id="skills" class="skillset">
+    <!-- Home Page Content (Visible by Default) -->
+    <div class="tab-content active" id="content-home">
       <h2>My Skills</h2>
       <p>With over 12 years of experience, I specialize in a wide range of QA Automation skills:</p>
-      <ul class="disc">
+      <ul>
         <li>Web, Mobile, API, Performance Testing</li>
         <li>Automation tools: Playwright, Selenium, Cypress, Katalon Studio, Appium, JMeter</li>
         <li>Programming languages: Java, JavaScript, TypeScript, Python, SQL</li>
         <li>CI/CD with Jenkins, Git, GitHub, Docker</li>
         <li>Test management: JIRA, qTest, Zephyr, Xray</li>
       </ul>
-    </section>
+    </div>
 
-    <section id="projects" class="projects">
-      <h2>Featured Projects</h2>
-      <p>Explore some of the key projects I have worked on, demonstrating the diverse scope of my QA Automation expertise:</p>
-      <ul class="disc">
-        <li>Project 1: Emergency Alert Systems - Web, API, Mobile Automation</li>
-        <li>Project 2: Telecom Software Automation - Playwright and Selenium-based testing</li>
-        <li>Project 3: Banking Application - End-to-End Testing and CI/CD Integration</li>
-      </ul>
-    </section>
-
-    <section id="frameworks" class="framework">
-      <h2>Automation Frameworks</h2>
-
-      <div id="playwright">
+    <!-- Playwright Framework Content -->
+    <div class="tab-content" id="content-playwright">
+      <div class="framework-section">
         <h3>Playwright</h3>
-        <details>
-          <summary>Overview</summary>
-          <p>Web, API, Performance testing using JavaScript, TypeScript, Python.</p>
-        </details>
-        <details>
-          <summary>AI Integrations</summary>
-          <p class="ai-highlight">Integrated with GitHub Copilot for faster script authoring, auto-healing locators, and AI-driven test suggestions using Microsoft Playwright Trace Viewer.</p>
-        </details>
-        <details>
-          <summary>Video</summary>
-          <iframe src="https://www.youtube.com/embed/sample_video" frameborder="0" allowfullscreen></iframe>
-        </details>
+        <p>Web, API, Performance testing using JavaScript, TypeScript, Python.</p>
+        <p class="ai-highlight">Integrated with GitHub Copilot for faster script authoring, auto-healing locators, and AI-driven test suggestions using Microsoft Playwright Trace Viewer.</p>
+        <iframe src="https://www.youtube.com/embed/sample_video" frameborder="0" allowfullscreen></iframe>
       </div>
+    </div>
 
-      <div id="selenium">
+    <!-- Selenium Framework Content -->
+    <div class="tab-content" id="content-selenium">
+      <div class="framework-section">
         <h3>Selenium</h3>
-        <details>
-          <summary>Overview</summary>
-          <p>Framework for web application automation using Java, TestNG, and Maven.</p>
-        </details>
-        <details>
-          <summary>AI Integrations</summary>
-          <p class="ai-highlight">Smart element locators using AI plugins in Selenium IDE and SeleniumBase for flaky test detection and healing.</p>
-        </details>
-        <details>
-          <summary>Video</summary>
-          <iframe src="https://www.youtube.com/embed/sample_video" frameborder="0" allowfullscreen></iframe>
-        </details>
+        <p>Framework for web application automation using Java, TestNG, and Maven.</p>
+        <p class="ai-highlight">Smart element locators using AI plugins in Selenium IDE and SeleniumBase for flaky test detection and healing.</p>
+        <iframe src="https://www.youtube.com/embed/sample_video" frameborder="0" allowfullscreen></iframe>
       </div>
+    </div>
 
-      <div id="cypress">
+    <!-- Cypress Framework Content -->
+    <div class="tab-content" id="content-cypress">
+      <div class="framework-section">
         <h3>Cypress</h3>
-        <details>
-          <summary>Overview</summary>
-          <p>Web and API testing using JavaScript, Mocha, and Chai.</p>
-        </details>
-        <details>
-          <summary>AI Integrations</summary>
-          <p class="ai-highlight">Integrated with tools like Testim and Mabl for AI-powered test creation and maintenance.</p>
-        </details>
-        <details>
-          <summary>Video</summary>
-          <iframe src="https://www.youtube.com/embed/sample_video" frameborder="0" allowfullscreen></iframe>
-        </details>
+        <p>Web and API testing using JavaScript, Mocha, and Chai.</p>
+        <p class="ai-highlight">Integrated with tools like Testim and Mabl for AI-powered test creation and maintenance.</p>
+        <iframe src="https://www.youtube.com/embed/sample_video" frameborder="0" allowfullscreen></iframe>
       </div>
+    </div>
 
-      <div id="katalon">
-        <h3>Katalon Studio</h3>
-        <details>
-          <summary>Overview</summary>
-          <p>Integrated solution for Web, API, Mobile, and Desktop testing.</p>
-        </details>
-        <details>
-          <summary>AI Integrations</summary>
-          <p class="ai-highlight">Built-in AI-assisted object detection and maintenance capabilities with Katalon Smart Wait and TestOps insights.</p>
-        </details>
-        <details>
-          <summary>Video</summary>
-          <iframe src="https://www.youtube.com/embed/sample_video" frameborder="0" allowfullscreen></iframe>
-        </details>
-      </div>
+    <!-- Add More Framework Sections Here -->
 
-      <!-- Add other tools similarly -->
-
-    </section>
-
-    <footer>
-      <p>&copy; 2025 AIQube. All rights reserved.</p>
-    </footer>
   </main>
+
+  <footer>
+    <p>&copy; 2025 AIQube. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Tab functionality to switch between tabs
+    const tabs = document.querySelectorAll('.tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+
+        tab.classList.add('active');
+        const contentId = `content-${tab.id.replace('tab-', '')}`;
+        document.getElementById(contentId).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
