@@ -1,0 +1,7 @@
+pytest
+requests
+PyYAML
+typer
+rich
+junitparser
+jinja2

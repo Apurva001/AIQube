@@ -1,0 +1,8 @@
+name: regression
+description: "Broader regression suite"
+includes:
+  - tests/**/*.py
+thresholds:
+  allowed_failures: 0
+pytest_args:
+  - -q

@@ -1,3 +1,50 @@
+Automation Testing Framework (Python)
+
+Overview
+This repository provides a lightweight, extensible automation testing framework designed for API/UI tests and human-in-the-loop regression gating. It is suitable for automation engineers and supports monitored agents that can require approval when regressions are detected.
+
+Key features
+- Clear, tester-friendly file structure
+- YAML-based suite configuration
+- CLI runner with rich console output
+- JUnit XML and HTML summary reporting
+- Monitoring agents with human-in-the-loop gating (non-interactive flag available)
+
+Quickstart
+1) Install dependencies
+   make install
+
+2) Run the smoke suite
+   make smoke
+
+3) Run the regression suite
+   make regression
+
+4) Custom run
+   make run SUITE=suites/smoke.yaml
+
+Human-in-the-loop gating
+- By default, agents can block if they detect regression beyond allowed thresholds.
+- Use --auto-approve to bypass manual approval in CI.
+- Alternatively set environment variable HUMAN_APPROVED=1 or create a file in .approvals/<suite-name>.approved to proceed.
+
+Project structure
+- cli.py                    CLI to run suites
+- framework/               Core framework modules
+- suites/                  YAML suite definitions
+- tests/                   Test files (API/UI examples included)
+- .reports/                Generated HTML reports
+- .artifacts/              JUnit XML and runtime artifacts
+- baselines/               Stored baseline results per suite
+
+Extending
+- Add new tests under tests/ (e.g., tests/api/ or tests/ui/)
+- Create or edit suites in suites/*.yaml to select tests and thresholds
+- Implement new agents under framework/agents/
+- Customize reporting under framework/reporting/
+
+License
+MIT
 ### Playwright Test Runner With JavaScript
 
 An example project demonstrating automation of playwright tests using page object design pattern framework.

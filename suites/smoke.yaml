@@ -1,0 +1,8 @@
+name: smoke
+description: "Fast smoke checks"
+includes:
+  - tests/smoke/test_health.py
+thresholds:
+  allowed_failures: 0
+pytest_args:
+  - -q
